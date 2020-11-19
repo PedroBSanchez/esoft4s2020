@@ -8,7 +8,7 @@ import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.Ativo;
 public class Fundo extends Ativo{
     
     private int tempoDeMercado;
-
+    //Lista de ramo
 
     public Fundo() {
         super();
