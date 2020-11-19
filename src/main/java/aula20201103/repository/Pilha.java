@@ -27,4 +27,21 @@ public class Pilha {
         this.id = id;
 	}
 
+	public String getId() {
+		return null;
+	}
+
+	public String getMarca() {
+		return null;
+	}
+
+	public String getModelo() {
+		return null;
+	}
+
+	public int getAmperagem() {
+		return this.amperagem;
+	}
+
+
 }
