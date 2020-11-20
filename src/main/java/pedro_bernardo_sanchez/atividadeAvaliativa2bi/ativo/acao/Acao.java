@@ -1,24 +1,44 @@
 package pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.Ativo;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.BaseEntity;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.empresa.Empresa;
 
 @Entity
-public class Acao extends Ativo {
+public class Acao extends BaseEntity {
     
-    private float dividendo;
+    private String sigla;
+    private double valor;
+    private double dividendo;
 
 
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
 
-
-    public Acao(String sigla, float valor, float tempoDeMercado) {
-        super(sigla, valor);
-        this.dividendo = dividendo;
+    public Acao() {
+        super();
     }
 
-    public float getDividendo() {
+    public Acao(String sigla, double valor, double dividendo, Empresa empresa) {
+        this();
+        this.sigla = sigla;
+        this.valor = valor;
+        this.dividendo = dividendo;
+        this.empresa = empresa;
+    }
+
+
+	public double getDividendo() {
         return dividendo;
     }
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
 
 }

@@ -1,14 +1,21 @@
 package pedro_bernardo_sanchez.atividadeAvaliativa2bi.empresa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.BaseEntity;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao.Acao;
 
 @Entity
 public class Empresa extends BaseEntity{
     
     private String cnpj;
     private String nome;
+
+    
 
 
     public Empresa() {
@@ -19,7 +26,6 @@ public class Empresa extends BaseEntity{
         this();
         this.cnpj = cnpj;
         this.nome = nome;
-
     }
 
     public String getCnpj() {

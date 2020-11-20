@@ -1,4 +1,4 @@
-package pedro_bernardo_sanchez.atividadeAvaliativa2bi.empresa;
+package pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao;
 
 import javax.transaction.Transactional;
 
@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class EmpresaService {
+public class AcaoService {
     
     @Autowired
-    private EmpresaRepository repo;
+    private AcaoRepository repo;
 
-
-    public void cadastarEmpresa(Empresa e) {
-        repo.save(e);
+    public void cadastrarAcao(Acao acao) {
+        repo.save(acao);
     }
-
 }
