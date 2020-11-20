@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface FundoRepository extends JpaRepository<Fundo, String>{
     
-    @Query(value = "select f from Fundo where f.sigla = :sigla")
+    @Query(value = "select f from Fundo f where f.sigla = :sigla")
     Fundo findFundoPorSigla(String sigla);
 
 

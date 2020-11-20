@@ -5,10 +5,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao.Acao;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao.AcaoService;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.Cambial;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.Fundo;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.FundoService;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.Imobiliario;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.Ramo;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.carteira.Carteira;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.carteira.CarteiraService;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.cliente.Cliente;
@@ -56,13 +59,26 @@ public class AppAtividadeAvaliativa2 implements CommandLineRunner{
         //c.setCliente(p); 
         //clienteService.cadastrarCliente(p);
 
-        Empresa e = new Empresa("123456", "Itau");
-        empresaService.cadastarEmpresa(e);
+        //Empresa e = new Empresa("123456", "Itau");
+        //empresaService.cadastarEmpresa(e);
 
-       // Acao a1 = new Acao("ITSF4", 15.5, 2.5, e);
-        Acao a2 = new Acao("IVVB11", 97.5, 2.7, e);
-        acaoService.cadastrarAcao(a2);
-    
+        // Acao a1 = new Acao("ITSF4", 15.5, 2.5, e);
+        // Acao a2 = new Acao("IVVB11", 97.5, 2.7, e);
+        // acaoService.cadastrarAcao(a2);
+      
         
+        //Fundo fundoTeste = new Fundo("ABC2", 152.5, 15);
+        //fundoService.cadastrarFundo(fundoTeste);
+        
+        // Atribuindo ramos ao fundo
+        Ramo r1 = new Imobiliario(45.5f);
+        Ramo r2 = new Cambial("dolar");
+        Fundo f = fundoService.atribuirRamoPorSigla("ABC2", r1);
+        f = fundoService.atribuirRamoPorSigla("ABC2", r2);
+
+
+
+
+
     }
 }
