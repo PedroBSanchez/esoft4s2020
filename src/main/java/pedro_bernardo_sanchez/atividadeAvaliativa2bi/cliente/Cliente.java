@@ -55,13 +55,7 @@ public class Cliente extends BaseEntity{
         this.mentores.add(new Mentor(nome, idade, tempoMentorando));
     }
 
-    public void comprarAcao(Acao acao) {
-        this.carteira.adicionarAcao(acao);
-    }
-
-    public void comprarFundo(Fundo fundo) {
-        this.carteira.adicionarFundo(fundo);
-    }
+   
 
 
 

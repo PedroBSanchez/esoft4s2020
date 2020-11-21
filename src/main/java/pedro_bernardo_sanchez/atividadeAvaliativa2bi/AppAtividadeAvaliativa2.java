@@ -26,6 +26,8 @@ public class AppAtividadeAvaliativa2 implements CommandLineRunner{
     @Autowired
     private ClienteService clienteService;
 
+    @Autowired
+    private CarteiraService carteiraService;
 
     @Autowired
     private EmpresaService empresaService;
@@ -50,34 +52,34 @@ public class AppAtividadeAvaliativa2 implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
         System.out.println("oi");
-        //Cliente p = new Cliente("Pedro", 19, "Amador", false);
-        //p.contratarMentor("marcos", 35, 18);
-        //clienteService.cadastrarCliente(p);
 
-        //Carteira c = new Carteira("diversificadateste09");
-        //Cliente p = new Cliente("teste09", 25, "Profissional", true, c);
-        //c.setCliente(p); 
-        //clienteService.cadastrarCliente(p);
+        Empresa e = new Empresa("123456", "Itau");
+        empresaService.cadastarEmpresa(e);
 
-        //Empresa e = new Empresa("123456", "Itau");
-        //empresaService.cadastarEmpresa(e);
+        Acao a1 = new Acao("ITSF4", 15.5, 2.5, e);
+        Acao a2 = new Acao("IVVB11", 97.5, 2.7, e);
+        acaoService.cadastrarAcao(a2);
 
-        // Acao a1 = new Acao("ITSF4", 15.5, 2.5, e);
-        // Acao a2 = new Acao("IVVB11", 97.5, 2.7, e);
-        // acaoService.cadastrarAcao(a2);
-      
+        Fundo f1 = new Fundo("ABC2", 152.5, 15);
+        fundoService.cadastrarFundo(f1);
         
-        //Fundo fundoTeste = new Fundo("ABC2", 152.5, 15);
-        //fundoService.cadastrarFundo(fundoTeste);
-        
-        // Atribuindo ramos ao fundo
+        //Atribuindo ramos ao fundo
         Ramo r1 = new Imobiliario(45.5f);
         Ramo r2 = new Cambial("dolar");
-        Fundo f = fundoService.atribuirRamoPorSigla("ABC2", r1);
-        f = fundoService.atribuirRamoPorSigla("ABC2", r2);
+        f1 = fundoService.atribuirRamoPorSigla("ABC2", r1);
+        f1 = fundoService.atribuirRamoPorSigla("ABC2", r2);
 
 
+        Carteira c = new Carteira("diversificada");
+        Cliente p = new Cliente("Lucas", 25, "Profissional", true, c);
+        c.adicionarAcao(a1);
+        c.adicionarAcao(a2);
+        c.adicionarFundo(f1);
+        clienteService.cadastrarCliente(p);
 
+        //Método de obtenção da ação que possui o maior valor
+        Acao maiorValor = acaoService.getRepo().findAcaoMaiorValor();
+        System.out.println(maiorValor.toString());
 
 
     }

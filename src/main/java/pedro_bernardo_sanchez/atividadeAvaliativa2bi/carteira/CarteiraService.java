@@ -16,6 +16,12 @@ public class CarteiraService {
     {
         repo.save(new Carteira(tipoDeCarteira));
     }
+    
+
+    public void save(Carteira carteira) {
+        repo.save(carteira);
+    }
+
 
 
 }

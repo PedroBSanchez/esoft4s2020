@@ -15,4 +15,11 @@ public class AcaoService {
     public void cadastrarAcao(Acao acao) {
         repo.save(acao);
     }
+
+    public AcaoRepository getRepo() {
+        return repo;
+    }
+
+
+
 }

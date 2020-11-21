@@ -34,15 +34,13 @@ public class Carteira extends BaseEntity {
 
  
 
-    //@OneToMany(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "carteira_id")
-    //private List<Acao> acoes = new ArrayList<>();
+    
     
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "acao_id")
     private List<Acao> acoes = new ArrayList<>();
-
+    
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "fundo_id")

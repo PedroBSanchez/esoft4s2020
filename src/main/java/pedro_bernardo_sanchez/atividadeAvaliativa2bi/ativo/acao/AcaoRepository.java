@@ -8,4 +8,8 @@ public interface AcaoRepository extends JpaRepository<Acao, String>{
     @Query(value = "select f from Acao f where f.sigla = :sigla")
     Acao findAcaoPorSigla(String sigla);
 
+    @Query(value = "select max(valor) from Acao")
+    Acao findAcaoMaiorValor();
+    
+
 }
