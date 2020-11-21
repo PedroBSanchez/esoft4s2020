@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 
 import net.bytebuddy.dynamic.TypeResolutionStrategy.Lazy;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.BaseEntity;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.acao.Acao;
+import pedro_bernardo_sanchez.atividadeAvaliativa2bi.ativo.fundo.Fundo;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.carteira.Carteira;
 import pedro_bernardo_sanchez.atividadeAvaliativa2bi.mentor.Mentor;
 
@@ -52,6 +54,16 @@ public class Cliente extends BaseEntity{
     public void contratarMentor(String nome, int idade, int tempoMentorando) {
         this.mentores.add(new Mentor(nome, idade, tempoMentorando));
     }
+
+    public void comprarAcao(Acao acao) {
+        this.carteira.adicionarAcao(acao);
+    }
+
+    public void comprarFundo(Fundo fundo) {
+        this.carteira.adicionarFundo(fundo);
+    }
+
+
 
     public String getNome() {
         return nome;
